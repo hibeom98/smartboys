@@ -21,3 +21,5 @@ sudo sh initenv.sh
 //라이다 실행 확인
 roslaunch ydlidar lidar_view.launch
 
+//ydlidar 패키지다운 참고
+https://archit0994.wixsite.com/architshah/post/manage-your-blog-from-your-live-site
