@@ -2,21 +2,7 @@
 wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh && chmod 755 ./install_ros_kinetic.sh && bash ./install_ros_kinetic.sh
 
 ***ydlidar pkg setting***
-//ros 작업공간의 소스 디렉토리 이동 및 패키지 다운
-roscd
-cd ..
-cd src
-git clone https://github.com/EAIBOT/ydlidar.git
-cd
 
-//소스 디렉토리 안에 ydlidar패키지 확인 후 ros 작업 공간으로 전환하고 컴파일
-cd /catkin_ws
-catkin_make
-echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-cd ~/catkin_ws/src/ydlidar/startup
-sudo chmod +x initenv.sh
-sudo sh initenv.sh
 
 //라이다 실행 확인
 roslaunch ydlidar lidar_view.launch
