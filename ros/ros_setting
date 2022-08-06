@@ -1,11 +1,17 @@
 //ubuntu 16.04 ros setting
-wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh && chmod 755 ./install_ros_kinetic.sh && bash ./install_ros_kinetic.sh
+wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh
+chmod 755 ./install_ros_kinetic.sh
+bash ./install_ros_kinetic.sh
 
 *****ydlidar pkg setting*****
-//ROS작업 공간의 소스 디렉토리 이동
+
+//ROS작업 공간의 소스 디렉토리 이동, ydlidar 패키지 세팅
 roscd
 cd ..
 cd src
+git clone https://github.com/EAIBOT/ydlidar.git
+
+//
 
 
 //라이다 실행 확인
