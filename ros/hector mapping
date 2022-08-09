@@ -1,0 +1,2 @@
+cd ~/catkin_ws
+sudo apt-get install ros-kinetic-hector-slam
