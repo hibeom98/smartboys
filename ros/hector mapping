@@ -1,2 +1,65 @@
+//hector_slam 패키지 다운로드
 cd ~/catkin_ws
 sudo apt-get install ros-kinetic-hector-slam
+
+//변환트리 구조
+cd ~/catkin_ws/src/ydlidar/launch
+roslaunch ydlidar lidar_view.launch
+--새 터미널을 열고--
+cd ~/catkin_ws/src/ydlidar
+rosrun tf view_frames
+--ydlidar패키지 안에 frames.pdf가 생성 (변환트리 표시)
+
+*****ydlidar패키지에 헥터 매핑을 도입*****
+cd ~/catkin_ws/src/ydlidar/launch
+touch all_nodes.launch
+--다음 all_nodes.launch 파일에 다음 코드를 복사한다
+<launch>
+
+     <node name="ydlidar_node" pkg="ydlidar" type="ydlidar_node" output="screen" respawn="false" >
+
+      <param name="port" type="string" value="/dev/ydlidar"/>
+
+      <param name="baudrate" type="int" value="128000"/>
+
+      <param name="frame_id" type="string" value="laser_frame"/>
+
+      <param name="low_exposure" type="bool" value="false"/>
+
+      <param name="resolution_fixed" type="bool" value="true"/>
+
+      <param name="auto_reconnect" type="bool" value="true"/>
+
+      <param name="reversion" type="bool" value="false"/>
+
+      <param name="angle_min" type="double" value="-180" />
+
+      <param name="angle_max" type="double" value="180" />
+
+      <param name="range_min" type="double" value="0.1" />
+
+      <param name="range_max" type="double" value="16.0" />
+
+      <param name="ignore_array" type="string" value="" />
+
+      <param name="samp_rate" type="int" value="9"/>
+
+      <param name="frequency" type="double" value="7"/>
+
+     </node>
+
+     <node pkg ="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /nav 40"/>
+
+     <node pkg ="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /nav /base_footprint 40"/>
+
+     <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.2245 0.0 0.2 0.0 0.0 0.0 /base_footprint /laser_frame 40" />
+
+     <include file="$(find hector_mapping)/launch/mapping_default.launch" />
+
+     <node pkg="rviz" name="rviz" type="rviz" args="-d $(find ydlidar)/launch/lidar.rviz" />
+
+     <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch" />
+
+</launch>
+
+
