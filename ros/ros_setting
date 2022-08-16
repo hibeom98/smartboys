@@ -59,9 +59,9 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 //x4 직렬포트에 장치 별칭 추가
- cd ~/catkin_ws/src/ydlidar/startup
- sudo chmod +x initenv.sh
- sudo sh initenv.sh
+cd ~/catkin_ws/src/ydlidar/startup
+sudo chmod +x initenv.sh
+sudo sh initenv.sh
 
 //라이다 실행 확인
 cd ~/catkin_ws/src/ydlidar/launch
