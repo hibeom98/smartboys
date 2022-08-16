@@ -20,7 +20,7 @@ sudo apt-get install ros-kinetic-turtlebot3-msgs
 sudo apt-get install ros-kinetic-turtlebot3
 
 //ros kinetic kame 설치
-sudo apt-get install ros-kineti-desktop-full
+sudo apt-get install ros-kinetic-desktop-full
 sudo apt-get install ros-kinetic-rqt*
 
 //ros 초기화
