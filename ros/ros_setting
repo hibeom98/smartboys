@@ -33,7 +33,7 @@ sudo apt-get install python-rosinstall
 //환경설정 불러오기
 source /opt/ros/kinetic/setup.bash
 
-//작업폴더 생성 및 초기화
+//ROS 작업폴더 생성 및 초기화
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 catkin_init_workspace
